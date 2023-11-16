@@ -1,7 +1,13 @@
+
+- name: Install dependency
+  apt:
+    name: ["adduser","libfontconfig1","musl"]
+    state: latest
+    update_cache: yes
 - name: Install grafana
   apt:
-    name: https://dl.grafana.com/enterprise/release/grafana-enterprise_{{ version }}_amd64.deb
-    state: latest
+    deb: https://dl.grafana.com/enterprise/release/grafana-enterprise_10.2.1_amd64.deb
+
 
 - name: "Grafana configuration file copy"
   template:
